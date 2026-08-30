@@ -468,23 +468,392 @@ footer {
     font-size: 12px; }
 
 
-/* ========================================
+
+
+
+
+    
+
+
+    /* ========================================
    スマホ対応
+   ※ PC表示には一切影響しない
 ======================================== */
 @media (max-width: 700px) {
 
+    /* ----------------------------------------
+       ヘッダー
+    ---------------------------------------- */
+
     .site-header {
-        padding-top: 30px; }
+        padding: 30px 15px 25px;
+    }
 
     .site-header h1 {
-        font-size: 28px; }
+        font-size: 28px;
+        margin: 8px 0 10px;
+    }
+
+    .site-header p {
+        font-size: 12px;
+    }
 
     .title-decoration div {
-        width: 80px; }
+        width: 70px;
+    }
+
+
+    /* ----------------------------------------
+       検索・絞り込み
+    ---------------------------------------- */
+
+    .container {
+        width: 94%;
+    }
 
     .filter-area {
-        grid-template-columns: 1fr; }
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+        margin-bottom: 15px;
+    }
+
+    .filter-item {
+        gap: 6px;
+    }
+
+    .filter-item label {
+        font-size: 12px;
+    }
+
+    select,
+    input {
+        height: 43px;
+        font-size: 14px;
+    }
+
+
+    /* ----------------------------------------
+       件数
+    ---------------------------------------- */
+
+    .result-info {
+        margin: 12px 3px;
+        font-size: 13px;
+    }
+
+    #result-count {
+        font-size: 17px;
+    }
+
+
+    /* ========================================
+       ★ 敵データをカード化 ★
+    ======================================== */
+
+    .table-wrapper {
+        overflow-x: visible;
+        border: none;
+        background: transparent;
+    }
+
+    table {
+        width: 100%;
+        min-width: 0;
+        display: block;
+        border: none;
+    }
+
+    /* 表の見出しをスマホでは隠す */
+    thead {
+        display: none;
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    /* ----------------------------------------
+       敵1体 = 1枚のカード
+    ---------------------------------------- */
+
+    tbody tr {
+        display: grid;
+
+        /* 基本は2列 */
+        grid-template-columns: 1fr 1fr;
+
+        width: 100%;
+        margin-bottom: 18px;
+
+        padding: 0;
+
+        background: rgba(10, 21, 37, 0.95);
+
+        border: 1px solid #35455a;
+        border-radius: 12px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    tbody tr:hover {
+        background: rgba(10, 21, 37, 0.95);
+    }
+
+
+    /* ----------------------------------------
+       基本セル
+    ---------------------------------------- */
+
+    tbody td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        min-width: 0;
+
+        padding: 12px 13px;
+
+        border-right: 1px solid #273548;
+        border-bottom: 1px solid #273548;
+
+        white-space: normal;
+    }
+
+
+    /* ========================================
+       敵の名前
+    ======================================== */
+
+    .enemy-name {
+        grid-column: 1 / -1;
+
+        justify-content: center;
+
+        min-width: 0;
+
+        padding: 15px 10px !important;
+
+        background: rgba(20, 34, 54, 0.8);
+
+        border-right: none !important;
+    }
+
+    .enemy-name strong {
+        font-size: 20px;
+    }
+
+
+    /* ========================================
+       画像
+    ======================================== */
+
+    .enemy-image {
+        grid-column: 1 / -1;
+
+        width: 100%;
+        min-width: 0;
+
+        height: auto;
+
+        padding: 12px !important;
+
+        border-right: none !important;
+
+        justify-content: center;
+    }
+
+    .enemy-image img {
+        width: 180px;
+        max-width: 100%;
+        height: 125px;
+
+        object-fit: cover;
+
+        border-radius: 8px;
+    }
+
+    .image-placeholder {
+        width: 180px;
+        max-width: 100%;
+        height: 125px;
+
+        border-radius: 8px;
+    }
+
+
+    /* ========================================
+       ステージ・系統
+    ======================================== */
+
+    tbody td:nth-child(3),
+    tbody td:nth-child(4) {
+        min-height: 70px;
+    }
+
+    tbody td:nth-child(3) {
+        border-right: 1px solid #273548;
+    }
+
+    tbody td:nth-child(4) {
+        border-right: none;
+    }
+
+    .stage-badge,
+    .type-badge {
+        font-size: 14px;
+    }
+
+
+    /* ========================================
+       守備力・呪文守備力
+    ======================================== */
+
+    tbody td:nth-child(5),
+    tbody td:nth-child(6) {
+        min-height: 70px;
+    }
+
+    .status-number {
+        font-size: 22px;
+    }
+
+
+    /* ========================================
+       属性耐性
+    ======================================== */
+
+    tbody td.resistance {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+
+        min-height: 58px;
+
+        padding: 8px 10px;
+
+        border-right: 1px solid #273548;
+    }
+
+    /* 右側の属性セルだけ右端の線を消す */
+    tbody td.resistance:nth-child(13),
+    tbody td.resistance:nth-child(11),
+    tbody td.resistance:nth-child(9) {
+        border-right: none;
+    }
+
+    /* 属性名を自動表示 */
+    tbody td.resistance::before {
+        font-size: 13px;
+        font-weight: bold;
+        color: #aeb8c7;
+    }
+
+    tbody td:nth-child(7).resistance::before {
+        content: "🔥 炎";
+        color: #ff754f;
+    }
+
+    tbody td:nth-child(8).resistance::before {
+        content: "❄️ 氷";
+        color: #5db7ff;
+    }
+
+    tbody td:nth-child(9).resistance::before {
+        content: "⚡ 雷";
+        color: #f4ca55;
+    }
+
+    tbody td:nth-child(10).resistance::before {
+        content: "🪨 土";
+        color: #c89568;
+    }
+
+    tbody td:nth-child(11).resistance::before {
+        content: "🌪️ 風";
+        color: #92d36e;
+    }
+
+    tbody td:nth-child(12).resistance::before {
+        content: "☀️ 光";
+        color: #f4df86;
+    }
+
+    tbody td:nth-child(13).resistance::before {
+        content: "🌑 闇";
+        color: #bd80e8;
+    }
+
+
+    /* ----------------------------------------
+       属性倍率
+       スマホでは少しコンパクトに
+    ---------------------------------------- */
+
+    .resistance span {
+        padding: 7px 10px;
+
+        border-radius: 7px;
+
+        font-size: 15px;
+
+        flex-shrink: 0;
+    }
+
+
+    /* ========================================
+       注意書き
+    ======================================== */
+
+    .data-note {
+        margin: 15px 0 0;
+        font-size: 11px;
+    }
+
+
+    /* ========================================
+       耐性の見方
+    ======================================== */
+
+    .resistance-guide {
+        margin-top: 16px;
+        padding: 16px;
+    }
+
+    .resistance-guide h2 {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
 
     .guide-items {
-        flex-direction: column; }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 14px;
+    }
+
+    .guide-items > div {
+        min-width: 0;
+        font-size: 12px;
+    }
+
+    .guide-value {
+        min-width: 100px;
+        padding: 6px 10px;
+    }
+
+
+    /* ========================================
+       フッター
+    ======================================== */
+
+    footer {
+        padding: 25px 10px;
+        font-size: 11px;
+    }
 }
