@@ -492,6 +492,10 @@ footer {
         overflow-x: hidden;
     }
 
+    body {
+        background: red !important;
+    }
+
     .container {
         width: 94%;
         max-width: none;
