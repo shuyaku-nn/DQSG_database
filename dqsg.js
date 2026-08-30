@@ -46,15 +46,15 @@ function filterEnemies() {
 
         /* 3つ全ての条件を満たした場合 */
         if (
-            stageMatch &&
-            typeMatch &&
-            nameMatch
-        ) {
-            row.style.display = "";
-            visibleCount++;
-        } else {
-            row.style.display = "none";
-        }
+    stageMatch &&
+    typeMatch &&
+    nameMatch
+) {
+    row.style.removeProperty("display");
+    visibleCount++;
+} else {
+    row.style.setProperty("display", "none", "important");
+}
     });
 
 
