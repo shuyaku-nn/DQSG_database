@@ -747,7 +747,7 @@ footer {
     }
 
 
-    /* ========================================
+        /* ========================================
        守備力・呪文守備力
     ======================================== */
 
@@ -760,6 +760,23 @@ footer {
 
     tbody td:nth-child(6) {
         border-right: none !important;
+    }
+
+    /* 守備力・呪文守備力の名前 */
+    tbody td:nth-child(5)::before {
+        content: "🛡️ 守備力";
+        font-size: 12px;
+        font-weight: bold;
+        color: #aaa;
+        margin-right: 8px;
+    }
+
+    tbody td:nth-child(6)::before {
+        content: "✨ 呪文守備力";
+        font-size: 12px;
+        font-weight: bold;
+        color: #aaa;
+        margin-right: 8px;
     }
 
     .status-number {
