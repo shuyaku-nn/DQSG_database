@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敵データベース</title>
+    <link rel="stylesheet" href="dqsg.css">
+</head>
+
+<body>
+<header class="site-header">
+    <div class="title-decoration">
+        <span>◆</span>
+        <div></div>
+        <span>◆</span>
+    </div>
+    <h1>敵データベース</h1>
+    <p> 敵の基本ステータスと属性耐性をまとめたデータベースです。</p>
+</header>
+
+
+<main class="container">
+    <!-- ========================================
+         検索・絞り込み
+    ========================================= -->
+    <section class="filter-area">
+
+        <div class="filter-item">
+            <label for="stage-filter">ステージ</label>
+
+            <select id="stage-filter">
+                <option value="all"> すべて</option>
+                <option value="マルチ">マルチ（最高難易度）</option>
+                <option value="強敵">強敵（最高難易度）</option>
+                <option value="祠">祠（最高難易度）</option>
+                <option value="ストーリー">ストーリー</option>
+            </select>
+
+        </div>
+
+
+        <div class="filter-item">
+            <label for="type-filter">系統</label>
+            <select id="type-filter">
+
+                <option value="all">すべて</option>
+                <option value="スライム系">スライム系</option>
+                <option value="けもの系">けもの系</option>
+                <option value="ドラゴン系">ドラゴン系</option>
+                <option value="悪魔系">悪魔系</option>
+                <option value="物質系">物質系</option>
+                <option value="ゾンビ系">ゾンビ系</option>
+                <option value="エレメント系">エレメント系</option>
+                <option value="植物系">植物系</option>
+                <option value="虫系">虫系</option>
+                <option value="水系">水系</option>
+                <option value="鳥系">鳥系</option>
+                <option value="マシン系">マシン系</option>
+                <option value="怪人系">怪人系</option>
+                <option value="？？？系">？？？系</option>
+                
+            </select>
+        </div>
+
+
+        <div class="filter-item search-box">
+
+            <label for="name-search">名前検索</label>
+            <div class="search-input">
+                <input
+                    type="text"
+                    id="name-search"
+                    placeholder="敵の名前を入力...">
+                <span>🔍</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================
+         件数
+    ========================================= -->
+    <div class="result-info">
+        <span id="result-count">5</span>
+        体の敵が見つかりました </div>
+
+
+    <!-- ========================================
+         敵一覧
+    ========================================= -->
+    <section class="table-wrapper">
+
+        <table id="enemy-table">
+            <thead>
+                <tr>
+                    <th>敵の名前</th>
+                    <th>敵の画像</th>
+                    <th>ステージ</th>
+                    <th>系統</th>
+                    <th>守備力</th>
+                    <th>呪文守備力</th>
+                    <th class="element-fire">🔥 炎耐性</th>
+                    <th class="element-ice">❄️ 氷耐性</th>
+                    <th class="element-thunder">⚡ 雷耐性</th>
+                    <th class="element-earth">🪨 土耐性</th>
+                    <th class="element-wind"> 🌪️ 風耐性</th>
+                    <th class="element-light">☀️ 光耐性</th>
+                    <th class="element-dark">🌑 闇耐性</th>
+                </tr
+            </thead>
+
+
+            <!--敵の情報色々書くところ沢山-->
+            <tbody id="enemy-list">
+
+
+
+
+                <tr
+                    data-name="アイスゴーレム"
+                    data-stage="祠"
+                    data-type="物質系">
+
+                    <td class="enemy-name">
+                        <strong>アイスゴーレム</strong></td>
+
+                    <td class="enemy-image"> 
+                        <img
+                            src="dqsgi/ai1.jpg"
+                            alt="アイスゴーレム"> </td>
+
+                    <td>
+                        <span class="stage-badge stage-shrine">
+                            祠
+                            <small>最高難易度</small>
+                        </span> </td>
+
+                    <td> <span class="type-badge">物質系</span> </td>
+
+                    <td> <span class="status-number">480</span> </td>
+                    <td> <span class="status-number">495</span> </td>
+
+                    <!-- ★ 属性耐性 ★ -->
+                    <td class="resistance">
+                        <span class="resistance-bad">1.50倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-good">0.50倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.75倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-bad">1.25倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-good">0.50倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-good">0.50倍</span> </td>
+                </tr>
+
+                <tr
+                    data-name="悪魔神官"
+                    data-stage="祠"
+                    data-type="悪魔系">
+
+                    <td class="enemy-name">
+                        <strong>悪魔神官</strong></td>
+
+                    <td class="enemy-image">
+                        <img
+                            src="dqsgi/aku1.jpg"
+                            alt="悪魔神官"></td>
+
+                    <td>
+                        <span class="stage-badge stage-shrine">
+                            祠
+                            <small>最高難易度</small>
+                        </span> </td>
+
+                    <td> <span class="type-badge">悪魔系</span> </td>
+
+                    <td> <span class="status-number">373</span> </td>
+                    <td> <span class="status-number">380</span> </td>
+
+                    <!-- ★ 属性耐性 ★ -->
+                    <td class="resistance">
+                        <span class="resistance-good">0.20倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-good">0.20倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-good">0.20倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-bad">1.40倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-bad">1.80倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-good">0.20倍</span> </td></td>
+                </tr>
+
+                <tr
+                    data-name="スライム"
+                    data-stage="ストーリー"
+                    data-type="スライム系">
+
+                    <td class="enemy-name">
+                        <strong>スライム</strong></td>
+
+                    <td class="enemy-image">
+                        <img
+                            src="dqsgi/sura1.jpg"
+                            alt="スライム"> </td>
+
+                    <td>
+                        <span class="stage-badge stage-story">
+                            ストーリー
+                            <small>normal 1-1</small>
+                        </span> </td>
+
+                    <td> <span class="type-badge">スライム系</span> </td>
+
+                    <td> <span class="status-number">18</span> </td>
+                    <td> <span class="status-number">34</span> </td>
+
+                    <!-- ★ 属性耐性 ★ -->
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+                </tr>
+
+                <tr
+                    data-name="フレイム"
+                    data-stage="ストーリー"
+                    data-type="エレメント系">
+
+                    <td class="enemy-name">
+                        <strong>フレイム</strong></td>
+
+                    <td class="enemy-image">
+                        <img
+                            src="dqsgi/hure1.jpg"
+                            alt="フレイム"> </td>
+
+                    <td>
+                        <span class="stage-badge stage-story">
+                            ストーリー
+                            <small>normal 6-13</small>
+                        </span> </td>
+
+                    <td> <span class="type-badge">エレメント系</span> </td>
+
+                    <td> <span class="status-number">444</span> </td>
+                    <td> <span class="status-number">462</span> </td>
+
+                    <!-- ★ 属性耐性 ★ -->
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.75倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-bad">1.50倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+                </tr>
+
+                <tr
+                    data-name="プロトキラー"
+                    data-stage="祠"
+                    data-type="マシン系">
+
+                    <td class="enemy-name">
+                        <strong>プロトキラー</strong></td>
+
+                    <td class="enemy-image">
+                        <img
+                            src="dqsgi/puro1.jpg"
+                            alt="プロトキラー"></td>
+
+                    <td>
+                        <span class="stage-badge stage-shrine">
+                            祠
+                            <small>最高難易度</small>
+                        </span> </td>
+
+                    <td> <span class="type-badge">マシン系</span> </td>
+
+                    <td> <span class="status-number">475</span> </td>
+                    <td> <span class="status-number">506</span> </td>
+
+                    <!-- ★ 属性耐性 ★ -->
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.60倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-good">0.20倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-bad">1.80倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-bad">1.40倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-good">0.20倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.60倍</span> </td>
+                </tr>
+
+                <tr
+                    data-name="炎の戦士"
+                    data-stage="祠"
+                    data-type="エレメント系">
+
+                    <td class="enemy-name">
+                        <strong>炎の戦士</strong></td>
+
+                    <td class="enemy-image">
+                        <img
+                            src="dqsgi/hono1.jpg"
+                            alt="炎の戦士"> </td>
+
+                    <td>
+                        <span class="stage-badge stage-shrine">
+                            祠
+                            <small>最高難易度</small>
+                        </span> </td>
+
+                    <td> <span class="type-badge">エレメント系</span> </td>
+
+                    <td> <span class="status-number">526</span> </td>
+                    <td> <span class="status-number">533</span> </td>
+
+                    <!-- ★ 属性耐性 ★ -->
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.725倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-bad">1.50倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.75倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.75倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.75倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.75倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-bad">1.25倍</span> </td>
+                </tr>
+
+                <tr
+                    data-name="マリンスライム"
+                    data-stage="強敵"
+                    data-type="水系">
+
+                    <td class="enemy-name">
+                        <strong>マリンスライム</strong></td>
+
+                    <td class="enemy-image">
+                        <img
+                            src="dqsgi/tumu1.jpg"
+                            alt="マリンスライム"> </td>
+
+                    <td>
+                        <span class="stage-badge stage-strong">
+                            強敵
+                            <small>最高難易度</small>
+                        </span> </td>
+
+                    <td> <span class="type-badge">水系</span> </td>
+
+                    <td> <span class="status-number">498</span> </td>
+                    <td> <span class="status-number">506</span> </td>
+
+                    <!-- ★ 属性耐性 ★ -->
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-bad">1.40倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.60倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-bad">1.825倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.60倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.60倍</span> </td>
+                </tr>
+
+                <tr
+                    data-name="目隠しおおきづち"
+                    data-stage="マルチ"
+                    data-type="怪人系">
+
+                    <td class="enemy-name">
+                        <strong>目隠しおおきづち</strong></td>
+
+                    <td class="enemy-image">
+                        <img
+                            src="dqsgi/meka1.jpg"
+                            alt="目隠しおおきづち"> </td>
+
+                    <td>
+                        <span class="stage-badge stage-multi">
+                            マルチ
+                            <small>最高難易度</small>
+                        </span> </td>
+
+                    <td> <span class="type-badge">怪人系</span> </td>
+
+                    <td> <span class="status-number">545</span> </td>
+                    <td> <span class="status-number">568</span> </td>
+
+                    <!-- ★ 属性耐性 ★ -->
+                    <td class="resistance">
+                        <span class="resistance-slight-bad">1.40倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-bad">1.40倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-slight-good">0.60倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-bad">1.80倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+
+                    <td class="resistance">
+                        <span class="resistance-normal">1.00倍</span> </td>
+                </tr>
+
+
+
+            
+
+                
+
+
+            </tbody>
+        </table>
+
+
+        <div id="no-results" class="no-results">
+            条件に一致する敵が見つかりませんでした。
+        </div>
+    </section>
+
+
+    <!-- ========================================
+         注意書き
+    ========================================= -->
+    <p class="data-note">※ステータスは最高難易度時の値です。</p>
+
+
+    <!-- ========================================
+         耐性の見方
+    ========================================= -->
+    <section class="resistance-guide">
+        <h2>耐性の見方</h2>
+
+        <div class="guide-items">
+            <div>
+                <span class="guide-value blue"></span>
+                <span>超耐性</span>
+            </div>
+
+            <div>
+                <span class="guide-value light-blue"></span>
+                <span>耐性</span>
+            </div>
+
+            <div>
+                <span class="guide-value normal"></span>
+                <span>等倍</span>
+            </div>
+
+            <div>
+                <span class="guide-value light-red"></span>
+                <span>弱点</span>
+            </div>
+
+            <div>
+                <span class="guide-value red"></span>
+                <span>超弱点</span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © Enemy Database
+</footer>
+
+
+<script src="dqsg.js"></script>
+
+</body> </html>

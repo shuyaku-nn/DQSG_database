@@ -1,0 +1,490 @@
+/* ========================================
+   基本設定
+======================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #101d32 0%,
+            #070d18 45%,
+            #040811 100%  );
+
+    color: #eeeeee;
+    font-family:
+        "Noto Sans JP",
+        "Hiragino Kaku Gothic ProN",
+        Meiryo,
+        sans-serif;  }
+
+.container {
+    width: min(1800px, 96%);
+    margin: 0 auto;   }
+
+
+/* ========================================
+   ヘッダー
+======================================== */
+.site-header {
+    text-align: center;
+    padding: 45px 20px 35px;  }
+
+.site-header h1 {
+    margin: 10px 0 12px;
+    font-size: 38px;
+    letter-spacing: 0.08em;  }
+
+.site-header p {
+    margin: 0;
+    color: #aeb8c7;
+    font-size: 14px;  }
+
+.title-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;  }
+
+.title-decoration div {
+    width: 180px;
+    height: 1px;
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #c9a45c,
+            transparent
+        ); }
+
+.title-decoration span {
+    color: #c9a45c;
+    font-size: 11px;  }
+
+
+/* ========================================
+   検索・絞り込み
+======================================== */
+.filter-area {
+    display: grid;
+    grid-template-columns:
+        1fr 1fr 1.5fr;
+    gap: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
+    background:
+        rgba(10, 21, 37, 0.92);
+    border: 1px solid #33445b;
+    border-radius: 12px;  }
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;  }
+
+.filter-item label {
+    color: #c9a45c;
+    font-size: 13px;
+    font-weight: bold;  }
+
+select,
+input {
+    width: 100%;
+    height: 45px;
+    padding: 0 14px;
+    color: #eeeeee;
+    background: #0b1525;
+    border: 1px solid #3b4b61;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;  }
+
+select:focus,
+input:focus {
+    border-color: #c9a45c; }
+
+.search-input {
+    position: relative; }
+
+.search-input input {
+    padding-right: 45px; }
+
+.search-input span {
+    position: absolute;
+    right: 14px;
+    top: 12px;
+    opacity: 0.7; }
+
+
+/* ========================================
+   件数
+======================================== */
+.result-info {
+    margin: 15px 5px;
+    color: #aeb8c7;
+    font-size: 14px; }
+
+#result-count {
+    color: #c9a45c;
+    font-weight: bold;
+    font-size: 18px; }
+
+
+/* ========================================
+   テーブル
+======================================== */
+.table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #35455a;
+    border-radius: 12px;
+    background:
+        rgba(6, 14, 25, 0.95); }
+
+table {
+    width: 100%;
+    min-width: 1500px;
+    border-collapse: collapse;  }
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    padding: 18px 12px;
+    background: #0c192c;
+    color: #eeeeee;
+    border-right: 1px solid #334257;
+    border-bottom: 1px solid #516078;
+    font-size: 14px;
+    white-space: nowrap; }
+
+
+/* ========================================
+   属性ヘッダー
+======================================== */
+.element-fire {
+    color: #ff754f; 
+    font-size: 20px;}
+
+.element-ice {
+    color: #5db7ff; 
+    font-size: 20px;}
+
+.element-thunder {
+    color: #f4ca55; 
+    font-size: 20px;}
+
+.element-wind {
+    color: #92d36e; 
+    font-size: 20px;}
+
+.element-dark {
+    color: #bd80e8; 
+    font-size: 20px;}
+
+.element-light {
+    color: #f4df86; 
+    font-size: 20px;}
+
+.element-earth {
+    color: #c89568; 
+    font-size: 20px;}
+
+
+/* ========================================
+   セル
+======================================== */
+tbody td {
+    padding: 16px 12px;
+    text-align: center;
+    border-right: 1px solid #273548;
+    border-bottom: 1px solid #273548;
+    white-space: nowrap; }
+
+tbody tr {
+    transition:
+        background 0.2s; }
+
+tbody tr:hover {
+    background:
+    rgba(40, 58, 82, 0.4);}
+
+ /*守備力などの数値のフォントのサイズ*/
+.status-number {
+    font-size: 25px;
+    font-weight: bold;
+}  
+
+/* ========================================
+   敵名
+======================================== */
+.enemy-name {
+    min-width: 150px; }
+
+.enemy-name strong {
+    font-size: 18px; }
+
+
+/* ========================================
+   画像
+======================================== */
+.enemy-image {
+    width: 160px;
+    min-width: 160px;
+    padding: 8px !important; }
+
+.image-placeholder {
+    width: 145px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background:
+        linear-gradient(
+            135deg,
+            #18273b,
+            #0c1626 );
+
+    border: 1px dashed #56677d;
+    border-radius: 6px;
+    color: #748298;
+    font-size: 13px; }
+
+.enemy-image img {
+    display: block;
+    width: 145px;
+    height: 100px;
+    margin: auto;
+    object-fit: cover;
+    border-radius: 6px; }
+
+
+/* ========================================
+   系統
+======================================== */
+.type-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #536176;
+    border-radius: 5px;
+    background: #121d2d;
+    color: #d3dae4;
+    font-size: 17px; }
+
+
+/* ========================================
+   ステージ
+======================================== */
+.stage-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 17px; }
+
+
+.stage-badge small {
+    font-size: 12px;
+    font-weight: normal; }
+
+.stage-multi {
+    color: #d68cff;
+    border: 1px solid #8752a8;
+    background:
+        rgba(135, 82, 168, 0.12);  }
+
+.stage-strong {
+    color: #ffb32d;
+    border: 1px solid #a86f20;
+    background:
+        rgba(168, 111, 32, 0.12); }
+
+.stage-story {
+    color: #82d35f;
+    border: 1px solid #4c8e39;
+    background:
+        rgba(76, 142, 57, 0.12); }
+
+.stage-shrine {
+    color: #62b5ff;
+
+    border: 1px solid #3978aa;
+
+    background: rgba(57, 120, 170, 0.12);
+}
+
+
+/* ========================================
+   ★★★★★
+   属性耐性
+   ★★★★★
+======================================== */
+
+/*
+   属性耐性の「セル」
+
+   背景色はここには付けない。
+*/
+.resistance {
+    text-align: center;
+    white-space: nowrap; }
+
+/*
+   実際に色が付く部分
+   ★★★ 色付き部分の大きさは
+   ここを変更 ★★★
+   padding: 上下 左右;
+*/
+.resistance span {
+    display: inline-block;
+    padding: 22px 15px;
+    border-radius: 7px;
+    color: #000000 !important;
+    font-weight: bold;
+    font-size: 22px; }   /*0.50倍などのフォントの大きさ*/
+
+
+/* ----------------------------------------
+   0.50倍以下 → 青
+---------------------------------------- */
+.resistance-good {
+    background-color: #3b9ee8; }
+
+/* ----------------------------------------
+   0.55〜0.95倍 → 薄い水色
+---------------------------------------- */
+.resistance-slight-good {
+    background-color: #b9def5; }
+
+/* ----------------------------------------
+   1.00倍 → 白
+---------------------------------------- */
+.resistance-normal {
+    background-color: #eeeeee; }
+
+/* ----------------------------------------
+   1.05〜1.45倍 → 薄い赤
+---------------------------------------- */
+.resistance-slight-bad {
+    background-color: #f5b8b8; }
+
+/* ----------------------------------------
+   1.50倍以上 → 赤
+---------------------------------------- */
+.resistance-bad {
+    background-color: #f04b4b; }
+
+
+/* ========================================
+   注意書き
+======================================== */
+.data-note {
+    margin: 18px 0 0;
+    text-align: center;
+    color: #8d99aa;
+    font-size: 13px; }
+
+
+/* ========================================
+   耐性の見方
+======================================== */
+.resistance-guide {
+    margin-top: 20px;
+    padding: 20px 25px;
+    background:
+        rgba(10, 21, 37, 0.92);
+    border: 1px solid #35455a;
+    border-radius: 12px; }
+
+.resistance-guide h2 {
+    margin: 0 0 16px;
+    font-size: 16px;
+    color: #eeeeee; }
+
+.guide-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; }
+
+.guide-items > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    min-width: 140px;
+    font-size: 13px;
+    color: #aeb8c7; }
+
+.guide-value {
+    display: inline-block;
+    min-width: 135px;
+    padding: 7px 12px;
+    border-radius: 7px;
+    text-align: center;
+    font-weight: bold;
+    color: #000000; }
+
+.guide-value.blue {
+    background-color: #3b9ee8; }
+
+.guide-value.light-blue {
+    background-color: #b9def5; }
+
+.guide-value.normal {
+    background-color: #eeeeee; }
+
+.guide-value.light-red {
+    background-color: #f5b8b8; }
+
+.guide-value.red {
+    background-color: #f04b4b; }
+
+
+/* ========================================
+   検索結果なし
+======================================== */
+.no-results {
+    display: none;
+    padding: 60px 20px;
+    text-align: center;
+    color: #8995a7; }
+
+
+/* ========================================
+   フッター
+======================================== */
+footer {
+    padding: 35px;
+    text-align: center;
+    color: #566477;
+    font-size: 12px; }
+
+
+/* ========================================
+   スマホ対応
+======================================== */
+@media (max-width: 700px) {
+
+    .site-header {
+        padding-top: 30px; }
+
+    .site-header h1 {
+        font-size: 28px; }
+
+    .title-decoration div {
+        width: 80px; }
+
+    .filter-area {
+        grid-template-columns: 1fr; }
+
+    .guide-items {
+        flex-direction: column; }
+}
