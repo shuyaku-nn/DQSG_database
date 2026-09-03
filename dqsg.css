@@ -199,8 +199,11 @@ thead th {
 }
 
 .other-data {
-    text-align: center;
-    min-width: 180px;
+    
+    justify-content: flex-start !important;
+    text-align: left;
+    padding-left: 3px !important;
+    min-width: 120px;
 }
 
 
@@ -913,7 +916,7 @@ footer {
         content: "その他";
         color: #aaa;
 
-        font-size: 13px;
+        font-size: 13px;    /*ここでその他内のm時の大きさをいじる*/
         font-weight: bold;
     }
 
