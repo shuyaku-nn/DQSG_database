@@ -193,6 +193,16 @@ thead th {
     color: #c89568; 
     font-size: 20px;}
 
+/* その他 */
+.element-other {
+    font-size: 20px;
+}
+
+.other-data {
+    text-align: center;
+    min-width: 180px;
+}
+
 
 /* ========================================
    セル
@@ -884,11 +894,33 @@ footer {
         font-weight: bold;
     }
 
+    /* ========================================
+       その他
+    ======================================== */
+    tbody td:nth-child(14) {
+        min-height: 60px;
+
+        padding: 8px 10px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+
+        border-right: none !important;
+    }
+
+    tbody td:nth-child(14)::before {
+        content: "その他";
+        color: #aaa;
+
+        font-size: 13px;
+        font-weight: bold;
+    }
+
 
     /* ========================================
        属性倍率
     ======================================== */
-
     .resistance span {
         display: inline-block !important;
 
